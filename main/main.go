@@ -5,7 +5,7 @@ import (
 	"go-tutorial/bot"
 	"go-tutorial/bot/english"
 	"go-tutorial/bot/spanish"
-	"go-tutorial/http"
+	"go-tutorial/channel"
 	"go-tutorial/object/person"
 )
 
@@ -46,7 +46,10 @@ func main() {
 	bot.PrintGreeting(eb)
 	bot.PrintGreeting(sb)
 
-	http.HttpRequest()
+	// http.HttpRequest()
+
+	// channel.StatusCheck()
+	channel.StatusCheckConcurent()
 	// spanish.Greeting()
 	// english.Greeting()
 }

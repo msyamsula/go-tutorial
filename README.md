@@ -6,9 +6,16 @@ vscode extension for go
 2. go (vscode exyension)
 
 useful command:
+cli:
 go mod init "module" --> create a module
 go mod tidy --> tidy up import export
 go mod edit -replace="web module"="local module"
+go:
+make(chan type) : make channel that can pass "type" data
+chanel<-data : send data to chanel
+variable<-chanel : wait value to be sent into channel, when that happen, set variable into that value
+fmt.Println(<-channel) : wait value to be sent into channel, when that happen, println it
+
 
 notes
 1. export only works for Capital variable or function
@@ -40,3 +47,13 @@ notes
 12. http client is located in net/http package
 13. composite interface, (see httpResponse body in net/http.Get). beside stating function in interface, interface can also state interface within its definition
 14. interface in go will automatically recognize struct that satisfiy its definition (by function or by other interface)
+15. go routine is a method to create concurency in golang, concurency is not pararelism, concurency is about jumping between execution routine to speed up the process whereas pararelism is executing at the same time.
+16. main function in go automatically has one go routine (Main routine). and we can add it along the way with "go" keyword
+17. routine that is created by "go" keyword are called child routine, and it has different behaviour with main routine
+18. go will jumping between go routine whenever current go routine has blocking call
+19. we can't control how go routine jump/switch. it's already done by operating system
+20. usually we spawn go routine whenever blocking call is met
+21. main routine control exit of our program which means every unfinished child routine will terminate when main routine exit
+22. to "communicate" between routine we use channel
+23. Never past by reference in different go routine
+24. when need to stop use function literal to create new go routine
