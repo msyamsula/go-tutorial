@@ -2,27 +2,12 @@ package main
 
 import (
 	"fmt"
+	"go-tutorial/bot"
+	"go-tutorial/bot/english"
+	"go-tutorial/bot/spanish"
+	"go-tutorial/http"
 	"go-tutorial/object/person"
 )
-
-type bot interface {
-	getGreeting() string
-}
-
-type englishBot struct{}
-type spanishBot struct{}
-
-func (englishBot) getGreeting() string {
-	return "Hello from england"
-}
-
-func (spanishBot) getGreeting() string {
-	return "Orale Padron"
-}
-
-func printGreeting(b bot) {
-	fmt.Println(b.getGreeting())
-}
 
 func main() {
 	// struct example, struct is imported from object/person
@@ -55,11 +40,13 @@ func main() {
 
 	fmt.Printf("%v\n", colors)
 
-	eb := englishBot{}
-	sb := spanishBot{}
+	eb := english.EnglishBot{}
+	sb := spanish.SpanishBot{}
 
-	printGreeting(eb)
-	printGreeting(sb)
+	bot.PrintGreeting(eb)
+	bot.PrintGreeting(sb)
+
+	http.HttpRequest()
 	// spanish.Greeting()
 	// english.Greeting()
 }

@@ -1,7 +1,9 @@
 package spanish
 
-import "fmt"
+type SpanishBot struct{}
 
-func Greeting() {
-	fmt.Println("Orale Padron")
+// because SpanishBot satisfy every function in Bot Interface
+// english bot is Bot and SpanishBot at the same time
+func (SpanishBot) GetGreeting() string {
+	return "Orale Padron"
 }
